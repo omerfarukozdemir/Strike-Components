@@ -243,6 +243,11 @@ License: BSD 3-Clause License*/
 
         if (overrideNewEvent) {
             addRecordEvent = component.getEvent('strike_evt_addNewRecord');
+            
+            // we need to detect which one is clicked. we can use event parameter.
+            addRecordEvent.setParams({
+                data: component.get('v.object')
+            });
         } else {
             addRecordEvent = $A.get('e.force:createRecord');
 
